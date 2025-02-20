@@ -1,28 +1,46 @@
-
-
-// Update the template so you can customize the properties to you suit your individual needs
 class Car {
     // define the properties of a car
     // variables inside the class - explicit variable declaration
     // and you must provide a default value for those variables
-    var licensePlate:String
+
+
     var model:String = "Honda Civic"
-    var color:String = "black"
+    // OPTION 1: Is the default value of the color going to be the same for all cars?
+    // var color:String = "black"
+    // OPTION 2: Or can the color be customized?
+    var color:String
+    var licensePlate:String
 
 
-    //  function to your class called a constructor
+    //  special function to your class called a constructor
     // Customize the default value of your properties
-    constructor(lp:String) {
+    constructor(lp:String, c:String) {
+        println("++ DEBUG: Constructor #1 function is executing")
         licensePlate = lp
+        color = c
+        println("++ DEBUG: Constructor #1 function is done!")
     }
+
+
+    // classes can have MORE than one constructors
+    constructor(lp:String) {
+        println("++ DEBUG: Constructor #2 function is executing")
+        color = "orange"
+        licensePlate = lp
+        println("++ DEBUG: Constructor #2 function is done!")
+    }
+
+
 }
+
+
 
 
 fun main() {
     println("DEMO OF CLASSES")
     // Using the class, create individual cars
     // Variable of type Car
-    val c1:Car = Car("HND101")
+    val c1:Car = Car("HND101", "black")
     println("car created!")
     // output the properties of your car using dot notation
     println(c1.model)
@@ -30,25 +48,21 @@ fun main() {
     println(c1.color)
 
 
-    val c2:Car = Car("CIV999")
+    // orange by default
+    // option 1: constructor #1
+    val c2:Car = Car("CIV999", "orange")
     println("-----car 2 created----")
     println(c2.model)
     println(c2.licensePlate)
     println(c2.color)
+    println("-----car 3 created----")
+    // option 2: use constructor #2
+    val c3:Car = Car("HC131")
+    println(c3.model)
+    println(c3.licensePlate)
+    println(c3.color)
 
 
-    println("---prove that c1 and c2 are different by output memory locations -----")
-    println(c1)
-    println(c2)
-
-
-    println("---prove that c1 and c2 are different by changing property values-----")
-    c2.licensePlate = "HONDA101"
-
-
-    println("What is c1? ${c1.model} ${c1.licensePlate}")
-    println("What is c2? ${c2.model} ${c2.licensePlate}")
 
 
 }
-
