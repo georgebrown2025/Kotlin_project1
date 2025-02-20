@@ -7,6 +7,7 @@ class Car {
     // and you must provide a default value for those variables
     var licensePlate:String
     var model:String = "Honda Civic"
+    var color:String = "black"
 
 
     //  function to your class called a constructor
@@ -26,12 +27,14 @@ fun main() {
     // output the properties of your car using dot notation
     println(c1.model)
     println(c1.licensePlate)
+    println(c1.color)
 
 
     val c2:Car = Car("CIV999")
     println("-----car 2 created----")
     println(c2.model)
     println(c2.licensePlate)
+    println(c2.color)
 
 
     println("---prove that c1 and c2 are different by output memory locations -----")
